@@ -62,7 +62,7 @@ def pythagoras():
                    print()
                    print("The hypotenuse is",result,"units long. (please round off if needed.)")
                    print()
-                   notdone = false
+                   notdone = False
                    return
             else:
                 print()
@@ -87,7 +87,7 @@ def sinrule():
                     print("unknown side / sin({0}) = {1} / sin({2})".format(angle2,side1,angle1))
                     print("thus,")
                     print("unknown side = {0} * {1}) / sin({2})".format(side1,angle2,angle1))
-                    result = (side1 * math.sin(angle1)) / math.sin(angle2)
+                    result = (side1 * math.sin(math.radians(angle1))) / math.sin(math.radians(angle2))
                     print()
                     print("The side is",result,"units long. (please round off if needed.)")
                     print()

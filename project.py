@@ -12,8 +12,6 @@ def trigcalc():
     print("5. Cosine rule (two sides, included angle OR three sides)")
     print("6. Area of triangle (two sides, included angle)")
     print()
-    print("Note that inverse trigonometric functions will be written as arc functions (i.e arcsin instead of sin^-1) to avoid confusion. All answers are in degrees.")
-    print()
     while notdone:
         try:
             mode = int(input("Please enter a mode: "))
@@ -86,9 +84,9 @@ def sinrule():
                     angle1 = float(input("Angle 1 (corresponding to side 1, in degrees, without the unit): "))
                     angle2 = float(input("Angle 2 (corresponding to unknown side, in degrees, without the unit): "))
                     print("By sine rule,")
-                    print("unknown side / sin({0}) = {1} / " + "sin({2})".format(angle2,side1,angle1))
+                    print("unknown side / sin({0}) = {1} / sin({2})".format(angle2,side1,angle1))
                     print("thus,")
-                    print("unknown side = {0} * {1})  +  /  sin({2})".format(side1,angle2,angle1))
+                    print("unknown side = {0} * {1}) / sin({2})".format(side1,angle2,angle1))
                     result = (side1 * math.sin(angle1)) / math.sin(angle2)
                     print()
                     print("The side is",result,"units long. (please round off if needed.)")
@@ -100,9 +98,9 @@ def sinrule():
                     side2 = float(input("Side 2 length (corresponding to unknown angle): "))
                     angle1 = float(input("Angle (corresponding to side 1, in degrees, without the unit): "))
                     print("By sine rule,")
-                    print("sin(unknown angle) /  {0} =  sin({1}) / {2} ".format(side2,angle1,side1))
+                    print("sin(unknown angle) / {0} = sin({1}) / {2} ".format(side2,angle1,side1))
                     print("thus,")
-                    print("unknown angle = arcsine(({0}  *  sin({1})   /  {2}".format(side2,angle1,side1))
+                    print("unknown angle = inv sine({0}  *  sin({1})) /  {2})".format(side2,angle1,side1))
                     result = math.degrees(math.asin((side2 * math.sin(math.radians(angle1))) / side1))
                     print()
                     print("The angle is",result,"or",(180 - result),"degrees wide. (please round off if needed.) Note that you may have to reject one of the answers.")
@@ -143,9 +141,9 @@ def cosrule():
                     b = float(input("Side 2 length: "))
                     c = float(input("Side 3 length: "))
                     print("By cosine rule,")
-                    print("Angle A = arccos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(b,c,a))
-                    print("Angle B = arccos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(a,c,b))
-                    print("Angle C = arccos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(a,b,c))
+                    print("Angle A = inv cos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(b,c,a))
+                    print("Angle B = inv cos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(a,c,b))
+                    print("Angle C = inv cos( ({0}^2 + {1}^2 - {2}^2) / (2*{0}*{1}) )".format(a,b,c))
                     print("Angles found:")
                     calc1 = (b**2 + c**2 - a**2) / (2*b*c)
                     calc2 = (a**2 + c**2 - b**2) / (2*a*c)
@@ -252,7 +250,7 @@ def rightangledtrigangle():
                 if known1 == "h" and known2 == "a":
                     print("Hypotenuse and adjacent side known, using arc (inverse) cosine")
                     print("Since cos() = adj/hyp,")
-                    print("unknown angle = arccos({0} / {1})".format(length2,length1))
+                    print("unknown angle = inv cos({0} / {1})".format(length2,length1))
                     result = math.degrees(math.acos(length2/length1))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -260,7 +258,7 @@ def rightangledtrigangle():
                 if known1 == "h" and known2 == "o":
                     print("Hypotenuse and opposite side known, using arc (inverse) sine")
                     print("Since sin() = opp/hyp,")
-                    print("unknown angle = arcsin({0} / {1})".format(length2,length1))
+                    print("unknown angle = inv sin({0} / {1})".format(length2,length1))
                     result = math.degrees(math.asin(length2/length1))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -268,7 +266,7 @@ def rightangledtrigangle():
                 if known1 == "a" and known2 == "h":
                     print("Hypotenuse and adjacent side known, using arc (inverse) cosine")
                     print("Since cos() = adj/hyp,")
-                    print("unknown angle = arccos({0} / {1})".format(length1,length2))
+                    print("unknown angle = inv cos({0} / {1})".format(length1,length2))
                     result = math.degrees(math.acos(length1/length2))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -276,7 +274,7 @@ def rightangledtrigangle():
                 if known1 == "o" and known2 == "h":
                     print("Hypotenuse and opposite side known, using arc (inverse) sine")
                     print("Since sin() = opp/hyp,")
-                    print("unknown angle = arcsin({0} / {1})".format(length1,length2))
+                    print("unknown angle = inv sin({0} / {1})".format(length1,length2))
                     result = math.degrees(math.asin(length1/length2))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -284,7 +282,7 @@ def rightangledtrigangle():
                 if known1 == "o" and known2 == "a":
                     print("Opposite and adjacent side known, using arc (inverse) tangent")
                     print("Since tan() = opp/adj,")
-                    print("unknown angle = arcsin({0} / {1})".format(length1,length2))
+                    print("unknown angle = inv tan({0} / {1})".format(length1,length2))
                     result = math.degrees(math.atan(length1/length2))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -292,7 +290,7 @@ def rightangledtrigangle():
                 if known1 == "a" and known2 == "o":
                     print("Adjacent and opposite side known, using arc (inverse) tangent")
                     print("Since tan() = opp/adj,")
-                    print("unknown angle = arcsin({0} / {1})".format(length2,length1))
+                    print("unknown angle = inv tan({0} / {1})".format(length2,length1))
                     result = math.degrees(math.atan(length2/length1))
                     print()
                     print("Angle is",result,"degrees (please round off if needed.)")
@@ -325,5 +323,6 @@ def areatriangle():
 
 while True:
     trigcalc()
+       
         
-
+        
